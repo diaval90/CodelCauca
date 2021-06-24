@@ -44,15 +44,15 @@ class RegistrarActivity : AppCompatActivity() {
             .addOnCompleteListener(this){ task ->
                 if (task.isSuccessful){
                     val Uid = FirebaseAuth.getInstance().currentUser!!.uid
-                    Toast.makeText(applicationContext, "Logeado", Toast.LENGTH_SHORT).show()
                     conexion.child("users").child(Uid).setValue(Usuarios(user, email, Uid))
                     val intent = Intent(this, IniciarActivity::class.java)
                     intent.putExtra("id", Uid)
+                    Toast.makeText(applicationContext, "Creado con exito!!", Toast.LENGTH_SHORT).show()
                     startActivity(intent)
                     finish()
 
                 }else{
-                    Toast.makeText(applicationContext, "El logeo fallo", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "No creado!!", Toast.LENGTH_SHORT).show()
                 }
             }
     }
