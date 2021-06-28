@@ -9,10 +9,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodAppK">
-        <activity android:name=".LogrosActivity"
+        <activity android:name=".LogrosListActivity"></activity>
+        <activity
+            android:name=".EditarLogroActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".ArbolActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".PerfilActivity" android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".LogrosActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".ArbolActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".PerfilActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".RegistrarActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
