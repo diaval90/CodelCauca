@@ -1,3 +1,3 @@
 package com.example.codappk
 
-data class Logro(val nombre:String, val aprendizaje:String, val id: String)
+data class Logro(val aprendizaje:String?=null, val id: String?=null, val nombre:String?=null)

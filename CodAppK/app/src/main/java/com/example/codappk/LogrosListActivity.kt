@@ -1,13 +1,22 @@
 package com.example.codappk
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.google.firebase.database.ktx.getValue
 
 
 class LogrosListActivity : AppCompatActivity() {
+
+    private  var autentication : FirebaseAuth?=null
+    private var database = FirebaseDatabase.getInstance()
+    private var conexion = database.reference
 
     private lateinit var dbref : DatabaseReference
     private lateinit var logroRecyclerView: RecyclerView
@@ -21,22 +30,22 @@ class LogrosListActivity : AppCompatActivity() {
         logroRecyclerView.layoutManager = LinearLayoutManager(this)
         logroRecyclerView.setHasFixedSize(true)
 
-
         logroArrayList = arrayListOf<Logro>()
         getUserData()
     }
 
     private fun getUserData() {
-        dbref = FirebaseDatabase.getInstance().getReference("Logros")
+        val user = FirebaseAuth.getInstance().currentUser!!.uid
+        dbref = FirebaseDatabase.getInstance().getReference("logros").child(user)
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()){
+                if(snapshot.exists()){
                     for(logroSnapshot in snapshot.children){
-                        val logro = logroSnapshot.getValue(Logro::class.java)
-                            logroArrayList.add(logro!!)
+                      val log = logroSnapshot.getValue(Logro::class.java)
+                        Log.e("LOGRO", "${log!!.nombre}")
+                        logroArrayList.add(log!!)
                     }
                     logroRecyclerView.adapter = MyAdapter(logroArrayList)
-
                 }
             }
 

@@ -3,20 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context=".LogrosListActivity"
     android:background="@color/white">
 
     <ScrollView
-        android:layout_width="377dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+
         <androidx.recyclerview.widget.RecyclerView
-            android:background="@color/white"
             android:id="@+id/RecyclerLogro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

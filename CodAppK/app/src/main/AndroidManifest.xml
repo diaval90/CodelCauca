@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CodAppK">
-        <activity android:name=".LogrosListActivity"></activity>
+        <activity android:name=".LogrosListActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".EditarLogroActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
