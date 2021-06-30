@@ -9,14 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.database.ktx.getValue
 
 
 class LogrosListActivity : AppCompatActivity() {
-
-    private  var autentication : FirebaseAuth?=null
-    private var database = FirebaseDatabase.getInstance()
-    private var conexion = database.reference
 
     private lateinit var dbref : DatabaseReference
     private lateinit var logroRecyclerView: RecyclerView
@@ -45,7 +40,15 @@ class LogrosListActivity : AppCompatActivity() {
                         Log.e("LOGRO", "${log!!.nombre}")
                         logroArrayList.add(log!!)
                     }
-                    logroRecyclerView.adapter = MyAdapter(logroArrayList)
+                    var adapter = MyAdapter(logroArrayList)
+                    logroRecyclerView.adapter = adapter
+                    adapter.setonItemClicklistener(object: MyAdapter.onItemClicklistener{
+                        override fun onItemClick(position: Int) {
+                            Toast.makeText(this@LogrosListActivity, "${position}", Toast.LENGTH_SHORT).show()
+                            val intent = Intent(this@LogrosListActivity, EditarLogroActivity::class.java)
+                            startActivity(intent)
+                        }
+                    })
                 }
             }
 

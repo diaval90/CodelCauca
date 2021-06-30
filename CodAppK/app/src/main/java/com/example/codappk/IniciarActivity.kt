@@ -22,7 +22,12 @@ class IniciarActivity : AppCompatActivity() {
         loginBtn.setOnClickListener {
             val email = login_mail.text.toString()
             val pass = login_password.text.toString()
-            login(email, pass)
+            if (email.equals("") && pass.equals("")){
+                login_mail.setError("Required")
+                login_password.setError("Required")
+            }else{
+                login(email, pass)
+            }
         }
     }
     private fun login(email:String, pass:String){

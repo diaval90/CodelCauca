@@ -49,11 +49,11 @@ class LogrosActivity : AppCompatActivity() {
 
     }
 
-    fun crear(logro: String, logro2: String) {
+    fun crear(logro2: String, logro: String) {
         val id: String = UUID.randomUUID().toString()
         val user = FirebaseAuth.getInstance().currentUser!!.uid
         if (user != null) {
-            val logros = Logro(logro, logro2, id)
+            val logros = Logro(logro, id, logro2)
             conexion.child("logros").child(user).child(logros.id!!).setValue(logros)
             val intent = Intent(this, LogrosActivity::class.java)
             Toast.makeText(this, "Logro agregado con exito!!", Toast.LENGTH_SHORT).show()

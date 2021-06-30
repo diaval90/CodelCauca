@@ -68,7 +68,9 @@ tools:context=".IniciarActivity">
                 android:hint="Correo electrónico"
                 android:inputType="textEmailAddress"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"/>
 
             <EditText
                 android:id="@+id/login_password"
@@ -80,16 +82,17 @@ tools:context=".IniciarActivity">
                 android:hint="Contraseña"
                 android:inputType="textPassword"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"/>
 
             <Button
                 android:id="@+id/loginBtn"
-                android:layout_width="116dp"
+                android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="35dp"
                 android:background="@drawable/btn_redondo"
-                android:onClick="onClick"
                 android:text="Ingresar"
                 android:textColor="#ffffff"
                 android:textSize="18sp"

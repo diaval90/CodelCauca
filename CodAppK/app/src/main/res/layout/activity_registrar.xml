@@ -62,7 +62,9 @@
                 android:hint="Correo Electrónico"
                 android:inputType="textEmailAddress"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"/>
 
             <EditText
                 android:id="@+id/edtUser"
@@ -74,7 +76,9 @@
                 android:hint="Usuario"
                 android:inputType="textPersonName"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"/>
 
             <EditText
                 android:id="@+id/edtPassword"
@@ -86,7 +90,9 @@
                 android:hint="Contraseña"
                 android:inputType="textPassword"
                 android:textSize="18sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -95,7 +101,7 @@
                 <Button
                     android:id="@+id/btnRegistrate"
                     android:layout_width="159dp"
-                    android:layout_height="67dp"
+                    android:layout_height="55dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/btn_redondo"
                     android:text="Registrarse"
@@ -107,7 +113,7 @@
                 <Button
                     android:id="@+id/btnSignIn"
                     android:layout_width="159dp"
-                    android:layout_height="67dp"
+                    android:layout_height="55dp"
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/btn_redondo"
                     android:text="Ingresar"

@@ -31,7 +31,13 @@ class RegistrarActivity : AppCompatActivity() {
             val email = edtEmail.text.toString()
             val password = edtPassword.text.toString()
             val user = edtUser.text.toString()
-            login(email, password, user)
+            if (email.equals("") && password.equals("") && user.equals("")){
+                edtEmail.setError("Required")
+                edtPassword.setError("Required")
+                edtUser.setError("Required")
+            }else{
+                login(email, password, user)
+            }
         }
 
         btnSignIn.setOnClickListener {
