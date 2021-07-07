@@ -4,11 +4,13 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import kotlin.math.log
 
 
 class LogrosListActivity : AppCompatActivity() {
@@ -36,7 +38,7 @@ class LogrosListActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
                     for(logroSnapshot in snapshot.children){
-                      val log = logroSnapshot.getValue(Logro::class.java)
+                        val log = logroSnapshot.getValue(Logro::class.java)
                         Log.e("LOGRO", "${log!!.nombre}")
                         logroArrayList.add(log!!)
                     }
@@ -44,18 +46,20 @@ class LogrosListActivity : AppCompatActivity() {
                     logroRecyclerView.adapter = adapter
                     adapter.setonItemClicklistener(object: MyAdapter.onItemClicklistener{
                         override fun onItemClick(position: Int) {
-                            Toast.makeText(this@LogrosListActivity, "${position}", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(applicationContext, "${position}", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@LogrosListActivity, EditarLogroActivity::class.java)
+                            var lis = logroArrayList[position]
+                            intent.putExtra("Logro", lis.nombre)
+                            intent.putExtra("Aprend", lis.aprendizaje)
+                            intent.putExtra("id", lis.id)
                             startActivity(intent)
                         }
                     })
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
                 TODO("Not yet implemented")
             }
-
         })
     }
 }

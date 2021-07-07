@@ -48,7 +48,9 @@
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/btn_casilla"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"/>
 
             <EditText
                 android:id="@+id/EditAprendizaje"
@@ -58,7 +60,9 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_gravity="center"
-                android:layout_marginBottom="5dp"/>
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/white"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

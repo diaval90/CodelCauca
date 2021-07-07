@@ -30,20 +30,22 @@ class IniciarActivity : AppCompatActivity() {
             }
         }
     }
+
     private fun login(email:String, pass:String){
         autentication.signInWithEmailAndPassword(email, pass).addOnCompleteListener{
             if (it.isSuccessful){
                 val idUser = FirebaseAuth.getInstance().currentUser!!.uid
                 val intent = Intent(this, ArbolActivity::class.java)
                 intent.putExtra("id", idUser)
+                Mensage("Inicio Exitoso!!")
                 startActivity(intent)
             }
             else{
-                runOnUiThread {
-                    Toast.makeText(this, "Usuario o contraseña incorrecto", Toast.LENGTH_LONG).show()
+                    Mensage("Usuario o contraseña incorrecta!")
                 }
-            }
         }
     }
-
+    fun Mensage(mensaje: String){
+        Toast.makeText(this, "${mensaje}", Toast.LENGTH_SHORT).show()
+    }
 }
